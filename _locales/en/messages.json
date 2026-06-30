@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "TreeJSON — JSON Viewer, Tree View, YAML & XML Formatter",
+    "description": "Full extension name shown in the Chrome Web Store and chrome://extensions."
+  },
+  "shortName": {
+    "message": "TreeJSON",
+    "description": "Short name used by Chrome where space is constrained."
+  },
+  "extensionDescription": {
+    "message": "Pretty-print JSON, YAML, XML in your browser. Tree view, search, JSONPath copy, export. Open source, privacy-first, MV3-native.",
+    "description": "Short description shown in the Chrome Web Store."
+  }
+}
