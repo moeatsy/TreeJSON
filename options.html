@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TreeJSON — Settings</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="brand-glyph" aria-hidden="true">{ }</span>
+      <span class="brand-name">TreeJSON</span>
+    </div>
+    <div class="header-right">
+      <span id="status" class="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Settings sections">
+      <a href="#appearance" class="nav-item active">Appearance</a>
+      <a href="#detection" class="nav-item">Detection</a>
+      <a href="#keyboard" class="nav-item">Keyboard</a>
+      <a href="#privacy" class="nav-item">Privacy &amp; Open source</a>
+      <a href="#about" class="nav-item">About</a>
+    </nav>
+
+    <main class="content">
+
+      <section id="appearance" class="section">
+        <h2>Appearance</h2>
+        <div class="field">
+          <label class="field-label" for="theme">Theme</label>
+          <div class="segmented" role="radiogroup" aria-labelledby="theme-label">
+            <input type="radio" name="theme" value="auto" id="theme-auto"><label for="theme-auto">Auto</label>
+            <input type="radio" name="theme" value="light" id="theme-light"><label for="theme-light">Light</label>
+            <input type="radio" name="theme" value="dark" id="theme-dark"><label for="theme-dark">Dark</label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="expand">Default expand depth</label>
+          <input id="expand" type="number" min="0" max="20" step="1">
+          <span class="hint">Number of tree levels open by default (0–20).</span>
+        </div>
+        <div class="field">
+          <label class="check"><input id="showPathChip" type="checkbox"> Show JSONPath chip on row hover <span class="muted">e.g. $[1].property</span></label>
+          <span class="hint">When on, hovering a tree row reveals a chip with the full path; click it to copy.</span>
+        </div>
+      </section>
+
+      <section id="detection" class="section">
+        <h2>Detection</h2>
+        <p class="lede">Choose which document types TreeJSON auto-formats.</p>
+        <label class="check"><input id="enableJSON" type="checkbox"> Auto-format JSON <span class="muted">application/json · .json · .jsonl · .ndjson</span></label>
+        <label class="check"><input id="enableYAML" type="checkbox"> Auto-format YAML <span class="muted">application/yaml · .yaml · .yml</span></label>
+        <label class="check"><input id="enableXML"  type="checkbox"> Auto-format XML  <span class="muted">application/xml · .xml</span></label>
+
+        <div class="field">
+          <label class="field-label" for="excludePatterns">Exclude URL patterns</label>
+          <textarea id="excludePatterns" rows="5" placeholder="# One regex per line. Lines starting with # are ignored.
+internal-tools\.example\.com/.*"></textarea>
+          <span class="hint">TreeJSON will skip URLs that match any of these regular expressions.</span>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Disabled origins</span>
+          <ul id="disabledOriginsList" class="origins-list">
+            <li class="empty">No origins disabled. Use the popup on a page to disable a specific origin.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="keyboard" class="section">
+        <h2>Keyboard</h2>
+        <p class="lede">Chrome manages extension shortcuts globally. TreeJSON opens the system page for you.</p>
+        <div class="shortcut-row">
+          <span class="shortcut-name">Toggle formatting on this page</span>
+          <span class="keys"><kbd>⌥</kbd><kbd>⇧</kbd><kbd>J</kbd></span>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-name">Focus search in tree</span>
+          <span class="keys"><kbd>⌘</kbd><kbd>F</kbd></span>
+        </div>
+        <p><button id="open-shortcuts" class="btn secondary">Edit shortcuts in Chrome →</button></p>
+      </section>
+
+      <section id="privacy" class="section privacy-section">
+        <h2>Privacy &amp; Open source</h2>
+        <p>
+          TreeJSON runs entirely in your browser. Zero telemetry, zero analytics, zero third-party
+          scripts, zero servers. Verifiable in Chrome DevTools — zero outbound requests.
+        </p>
+        <div class="row-btns">
+          <a class="btn secondary" href="https://extkit.dev/treejson/policy" target="_blank" rel="noopener noreferrer">Read full privacy policy →</a>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About</h2>
+        <div class="kv"><span>Version</span><span id="versionEl">—</span></div>
+        <div class="kv"><span>Credits</span><span>Built by developers, for developers.</span></div>
+
+        <p><button id="reset-defaults" class="btn destructive">Reset all settings</button></p>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

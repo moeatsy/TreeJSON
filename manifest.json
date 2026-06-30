@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "short_name": "__MSG_shortName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.2.2",
+  "default_locale": "en",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TreeJSON",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/yaml.js", "lib/highlight.js", "lib/shadow-styles.js", "lib/renderer.js", "lib/search.js", "lib/rating-widget.js", "content.js"],
+      "run_at": "document_start",
+      "match_origin_as_fallback": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "toggle-formatting": {
+      "suggested_key": { "default": "Alt+Shift+J" },
+      "description": "Toggle JSON formatting on/off for this page"
+    },
+    "search-json": {
+      "suggested_key": { "default": "Ctrl+F" },
+      "description": "Open search panel (when JSON is displayed)"
+    }
+  },
+  "homepage_url": "https://extkit.dev/treejson",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "welcome.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "minimum_chrome_version": "120"
+}

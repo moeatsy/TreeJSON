@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TreeJSON</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="brand-glyph" aria-hidden="true">{ }</span>
+      <span class="brand-name">TreeJSON</span>
+    </div>
+    <button id="open-options" class="icon-btn" aria-label="Settings" title="Settings">⚙</button>
+  </header>
+
+  <section id="status-card" class="status-card" aria-live="polite">
+    <span class="status-dot" data-state="nojson" aria-hidden="true"></span>
+    <div class="status-body">
+      <div class="status-label">Loading…</div>
+      <div class="status-meta"></div>
+      <div class="status-url" title=""></div>
+    </div>
+  </section>
+
+  <section id="toggles" class="toggles" hidden>
+    <label class="toggle">
+      <span class="toggle-label" id="tab-toggle-label">Disable for this tab</span>
+      <input id="tab-toggle" type="checkbox" role="switch">
+      <span class="switch" aria-hidden="true"></span>
+    </label>
+    <label class="toggle">
+      <span class="toggle-label" id="origin-toggle-label">Disable for this origin</span>
+      <input id="origin-toggle" type="checkbox" role="switch">
+      <span class="switch" aria-hidden="true"></span>
+    </label>
+  </section>
+
+  <section id="actions" class="actions" hidden>
+    <h2 class="section-eyebrow">Quick actions</h2>
+    <div class="action-row">
+      <button id="copy-action" class="btn primary">Copy formatted</button>
+      <button id="download-action" class="btn secondary">Download</button>
+    </div>
+  </section>
+
+  <section id="empty-hint" class="empty-hint" hidden>
+    <p>Open a JSON, YAML, or XML URL — TreeJSON will format it automatically.</p>
+    <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener noreferrer">Try an example →</a>
+  </section>
+
+  <footer class="footer">
+    <div class="shortcuts" aria-label="Keyboard shortcuts">
+      <span class="shortcut"><kbd>⌥</kbd><kbd>⇧</kbd><kbd>J</kbd> Toggle on this page</span>
+      <span class="shortcut"><kbd>⌘</kbd><kbd>F</kbd> Focus search</span>
+    </div>
+    <div class="osnote">Open source · privacy-first</div>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to TreeJSON</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <img class="logo" src="icons/icon128.png" alt="" width="64" height="64" aria-hidden="true">
+
+      <h1>TreeJSON is installed.</h1>
+      <p class="sub">Open any JSON URL — it formats automatically. No setup, no account, no config.</p>
+    </section>
+
+    <section class="card try">
+      <span class="eyebrow">Try it now</span>
+      <h2>Three example URLs</h2>
+      <p class="lede">Click any to see TreeJSON in action.</p>
+      <ul class="try-list">
+        <li>
+          <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener noreferrer">
+            <span class="try-label">Users API</span>
+            <span class="try-path">jsonplaceholder.typicode.com/users</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://pokeapi.co/api/v2/pokemon/pikachu" target="_blank" rel="noopener noreferrer">
+            <span class="try-label">PokéAPI</span>
+            <span class="try-path">pokeapi.co/api/v2/pokemon/pikachu</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://api.ipify.org/?format=json" target="_blank" rel="noopener noreferrer">
+            <span class="try-label">Your public IP</span>
+            <span class="try-path">api.ipify.org/?format=json</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card perms">
+      <span class="eyebrow">About permissions</span>
+      <h2>Why does Chrome say "Read your data on all websites"?</h2>
+      <p>
+        JSON APIs live on every domain on the web. To format a JSON response from any domain, Chrome
+        requires us to declare access to that domain — there is no <code>&lt;json-mime-only&gt;</code>
+        permission.
+      </p>
+      <p>
+        TreeJSON only inspects the document's <code>content-type</code>. If it isn't JSON, YAML, or XML,
+        the script exits immediately. We never read browsing history. We never send any URL anywhere.
+        We have no servers.
+      </p>
+      <pre class="code"><span class="comment">// content.js — the actual detection check</span>
+<span class="kw">if</span> (!shouldFormat()) <span class="kw">return</span>;   <span class="comment">// ← exits before touching the page</span></pre>
+      <div class="row-links">
+        <a href="https://extkit.dev/treejson/policy" target="_blank" rel="noopener noreferrer">→ Read the privacy policy</a>
+      </div>
+    </section>
+
+    <section class="card privacy">
+      <span class="eyebrow">Privacy</span>
+      <h2>What TreeJSON never does</h2>
+      <ul class="chips">
+        <li><span class="check" aria-hidden="true">✓</span> No telemetry</li>
+        <li><span class="check" aria-hidden="true">✓</span> No analytics</li>
+        <li><span class="check" aria-hidden="true">✓</span> No servers</li>
+        <li><span class="check" aria-hidden="true">✓</span> Open source</li>
+      </ul>
+    </section>
+
+    <section class="card customize">
+      <span class="eyebrow">Customize</span>
+      <h2>Defaults you can change</h2>
+      <p>Theme, expand depth, file types, exclude URLs — all in settings.</p>
+      <p><a class="btn primary" href="options.html">Open settings →</a></p>
+    </section>
+
+    <footer class="footer">
+      <span>Privacy-first JSON viewer</span>
+    </footer>
+  </main>
+</body>
+</html>

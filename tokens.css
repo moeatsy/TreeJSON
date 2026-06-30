@@ -1,0 +1,209 @@
+/* TreeJSON design tokens — single source of truth.
+   Used by popup, options, welcome, and bundled docs pages.
+   The content-script shadow DOM gets an equivalent set via lib/shadow-styles.js. */
+
+:root {
+  /* Surfaces */
+  --tj-bg:           #FAFAFA;
+  --tj-bg-elevated:  #FFFFFF;
+  --tj-bg-subtle:    #F4F4F5;
+  --tj-bg-strong:    #E4E4E7;
+
+  /* Content */
+  --tj-fg:           #18181B;
+  --tj-fg-muted:     #52525B;
+  --tj-fg-subtle:    #A1A1AA;
+
+  /* Borders */
+  --tj-border:       #E4E4E7;
+  --tj-border-strong:#D4D4D8;
+
+  /* Accent — indigo→violet duotone */
+  --tj-accent:           #5B5BD6;
+  --tj-accent-hover:     #4F46E5;
+  --tj-accent-pressed:   #4338CA;
+  --tj-accent-subtle:    #EEF2FF;
+  --tj-accent-emphasis:  #7C3AED;
+
+  /* Semantic */
+  --tj-success:      #059669;
+  --tj-success-bg:   #D1FAE5;
+  --tj-warning:      #D97706;
+  --tj-warning-bg:   #FEF3C7;
+  --tj-danger:       #DC2626;
+  --tj-danger-bg:    #FEE2E2;
+  --tj-info:         #2563EB;
+  --tj-info-bg:      #DBEAFE;
+
+  /* Syntax (light) */
+  --tj-syn-key:      #B91C5C;
+  --tj-syn-string:   #047857;
+  --tj-syn-number:   #B45309;
+  --tj-syn-boolean:  #6D28D9;
+  --tj-syn-null:     #71717A;
+  --tj-syn-bracket:  #71717A;
+  --tj-syn-link:     #2563EB;
+
+  /* Match highlight */
+  --tj-match-bg:     #FEF08A;
+  --tj-match-fg:     #18181B;
+
+  /* Overlays */
+  --tj-overlay:        rgba(24, 24, 27, 0.04);
+  --tj-overlay-strong: rgba(24, 24, 27, 0.08);
+
+  /* Typography */
+  --tj-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "JetBrains Mono", "Cascadia Code", monospace;
+  --tj-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+  /* Type scale (px / line-height / weight) */
+  --tj-text-2xs:  10px;
+  --tj-text-xs:   11px;
+  --tj-text-sm:   12px;
+  --tj-text-base: 13px;
+  --tj-text-md:   14px;
+  --tj-text-lg:   16px;
+  --tj-text-xl:   20px;
+  --tj-text-2xl:  28px;
+
+  /* Spacing (4px base) */
+  --tj-space-1:   4px;
+  --tj-space-2:   8px;
+  --tj-space-3:   12px;
+  --tj-space-4:   16px;
+  --tj-space-5:   20px;
+  --tj-space-6:   24px;
+  --tj-space-8:   32px;
+  --tj-space-10:  40px;
+  --tj-space-12:  48px;
+  --tj-space-16:  64px;
+
+  /* Radius */
+  --tj-radius-xs:  2px;
+  --tj-radius-sm:  4px;
+  --tj-radius-md:  6px;
+  --tj-radius-lg:  8px;
+  --tj-radius-xl:  12px;
+  --tj-radius-full: 9999px;
+
+  /* Shadow */
+  --tj-shadow-xs: 0 1px 0 rgb(0 0 0 / 0.04);
+  --tj-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --tj-shadow-md: 0 4px 12px rgb(0 0 0 / 0.10);
+  --tj-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.14);
+
+  /* Motion */
+  --tj-dur-instant: 0ms;
+  --tj-dur-fast:    80ms;
+  --tj-dur-base:    160ms;
+  --tj-dur-slow:    240ms;
+  --tj-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --tj-ease-inout:  cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --tj-bg:           #0B0C0F;
+    --tj-bg-elevated:  #131418;
+    --tj-bg-subtle:    #1A1B1F;
+    --tj-bg-strong:    #26272D;
+
+    --tj-fg:           #F4F4F5;
+    --tj-fg-muted:     #A1A1AA;
+    --tj-fg-subtle:    #71717A;
+
+    --tj-border:       #27272A;
+    --tj-border-strong:#3F3F46;
+
+    --tj-accent:           #7C7CF5;
+    --tj-accent-hover:     #9090F8;
+    --tj-accent-pressed:   #6B6BD0;
+    --tj-accent-subtle:    rgba(124,124,245,0.12);
+    --tj-accent-emphasis:  #A78BFA;
+
+    --tj-success:      #10B981;
+    --tj-success-bg:   rgba(16,185,129,0.12);
+    --tj-warning:      #F59E0B;
+    --tj-warning-bg:   rgba(245,158,11,0.12);
+    --tj-danger:       #F87171;
+    --tj-danger-bg:    rgba(248,113,113,0.12);
+    --tj-info:         #60A5FA;
+    --tj-info-bg:      rgba(96,165,250,0.12);
+
+    --tj-syn-key:      #F472B6;
+    --tj-syn-string:   #34D399;
+    --tj-syn-number:   #FBBF24;
+    --tj-syn-boolean:  #C084FC;
+    --tj-syn-null:     #71717A;
+    --tj-syn-bracket:  #71717A;
+    --tj-syn-link:     #93C5FD;
+
+    --tj-match-bg:     rgba(251,191,36,0.30);
+    --tj-match-fg:     #FEF3C7;
+
+    --tj-overlay:        rgba(244, 244, 245, 0.04);
+    --tj-overlay-strong: rgba(244, 244, 245, 0.08);
+
+    --tj-shadow-xs: 0 1px 0 rgb(0 0 0 / 0.20);
+    --tj-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.30);
+    --tj-shadow-md: 0 4px 12px rgb(0 0 0 / 0.40);
+    --tj-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.50);
+  }
+}
+
+:root[data-theme="dark"] {
+  --tj-bg:           #0B0C0F;
+  --tj-bg-elevated:  #131418;
+  --tj-bg-subtle:    #1A1B1F;
+  --tj-bg-strong:    #26272D;
+
+  --tj-fg:           #F4F4F5;
+  --tj-fg-muted:     #A1A1AA;
+  --tj-fg-subtle:    #71717A;
+
+  --tj-border:       #27272A;
+  --tj-border-strong:#3F3F46;
+
+  --tj-accent:           #7C7CF5;
+  --tj-accent-hover:     #9090F8;
+  --tj-accent-pressed:   #6B6BD0;
+  --tj-accent-subtle:    rgba(124,124,245,0.12);
+  --tj-accent-emphasis:  #A78BFA;
+
+  --tj-success:      #10B981;
+  --tj-success-bg:   rgba(16,185,129,0.12);
+  --tj-warning:      #F59E0B;
+  --tj-warning-bg:   rgba(245,158,11,0.12);
+  --tj-danger:       #F87171;
+  --tj-danger-bg:    rgba(248,113,113,0.12);
+  --tj-info:         #60A5FA;
+  --tj-info-bg:      rgba(96,165,250,0.12);
+
+  --tj-syn-key:      #F472B6;
+  --tj-syn-string:   #34D399;
+  --tj-syn-number:   #FBBF24;
+  --tj-syn-boolean:  #C084FC;
+  --tj-syn-null:     #71717A;
+  --tj-syn-bracket:  #71717A;
+  --tj-syn-link:     #93C5FD;
+
+  --tj-match-bg:     rgba(251,191,36,0.30);
+  --tj-match-fg:     #FEF3C7;
+
+  --tj-overlay:        rgba(244, 244, 245, 0.04);
+  --tj-overlay-strong: rgba(244, 244, 245, 0.08);
+
+  --tj-shadow-xs: 0 1px 0 rgb(0 0 0 / 0.20);
+  --tj-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.30);
+  --tj-shadow-md: 0 4px 12px rgb(0 0 0 / 0.40);
+  --tj-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
